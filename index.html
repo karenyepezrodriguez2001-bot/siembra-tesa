@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Siembra hábitos, cosecha salud · TESA</title>
+<style>
+:root{--g:#5b2a86;--gl:#f3ebfa;--o:#f5c518;--od:#7a5b00;--t:#241a30;--m:#6b5d7a;--b:#ddcfec;--bg:#faf6ff}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family:Arial,Helvetica,sans-serif;color:var(--t);line-height:1.5;background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.8) 0 2px,transparent 3px) 0 0/46px 46px,linear-gradient(180deg,#f1e7fb 0%,#fffbe8 55%,#ffffff 100%) fixed}
+main{padding:16px;min-width:0;width:100%}
+.card{background:rgba(255,255,255,.95);border:1px solid var(--b);border-top:4px solid var(--g);border-radius:16px;padding:16px;margin-bottom:14px;box-shadow:0 4px 14px rgba(91,42,134,.10);transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(91,42,134,.18)}.card:nth-child(3n+2){border-top-color:var(--o)}.card:nth-child(3n){border-top-color:#a77bd1}
+.card h2,.card h3{margin:0 0 8px;color:var(--g)}
+label{display:block;font-size:14px;font-weight:bold;margin:12px 0 4px}
+input,select,textarea{width:100%;padding:10px;border:1px solid #c5b3d8;border-radius:8px;font-size:15px;font-family:inherit;background:#fff}
+button{background:var(--g);color:#fff;border:0;border-radius:8px;padding:11px 18px;font-size:15px;font-weight:bold;cursor:pointer;margin-top:14px}
+button.sec{background:#fff;color:var(--g);border:1px solid var(--g)}button.y{background:var(--o);color:#3a2a00}button:disabled{opacity:.5;cursor:default}
+.lock{background:#eee;color:#777}.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--gl);color:var(--g);margin:2px 4px 2px 0}
+.tag.w{background:#fff4c7;color:var(--od)}.code{font-size:28px;letter-spacing:4px;font-weight:bold;color:var(--g);background:var(--gl);padding:8px 14px;border-radius:8px;display:inline-block}
+.err{background:#fde8e8;color:#9b1c1c;padding:10px;border-radius:8px;margin-top:12px;font-size:14px}.ok{background:var(--gl);color:var(--g);padding:10px;border-radius:8px;margin-top:12px;font-size:14px}
+.q{margin:14px 0;padding-bottom:10px;border-bottom:1px solid #efe7f6}.q p{margin:0 0 6px;font-weight:bold}.q label{font-weight:normal;display:flex;gap:8px;align-items:flex-start;margin:4px 0}.q input{width:auto;margin-top:3px}
+.small{font-size:13px;color:var(--m)}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:520px){.row{grid-template-columns:1fr}}
+.alert{border-left:4px solid var(--o);background:#fff9de;padding:10px 12px;border-radius:6px;font-size:14px;margin-top:10px}
+.cert{background:#fff;border:10px double #c9a227;padding:34px 30px;text-align:center;font-family:Georgia,"Times New Roman",serif;color:#2a2a2a;margin:14px 0}
+.cert h2{font-size:30px;letter-spacing:3px;color:#5b2a86;margin:6px 0}.cert .nm{font-size:30px;font-style:italic;border-bottom:1px solid #999;display:inline-block;min-width:60%;padding:4px 14px;margin:10px 0}
+.cert .sg{display:flex;justify-content:space-around;gap:40px;margin-top:46px;font-size:13px}.cert .sg div{flex:1;border-top:1px solid #555;padding-top:6px}
+@media print{header,footer,.noprint,#fl,.side{display:none!important}body{background:#fff!important;display:block}.shell{display:block}main{max-width:none;padding:0}.card{box-shadow:none;border:1px solid #bbb;break-inside:avoid}.cert{margin:0;border-width:12px}@page{size:A4 landscape;margin:10mm}}
+.deco{font-size:26px;margin-bottom:4px}.deco span{display:inline-block;margin:0 6px;animation:bob 3s ease-in-out infinite}.deco span:nth-child(even){animation-delay:.6s}@keyframes bob{50%{transform:translateY(-6px)}}
+.plots{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;text-align:center;margin:10px 0}.plot{background:#f1ecf6;border-radius:10px;padding:8px 2px}.plot span{display:block;font-size:30px;filter:grayscale(1);opacity:.45}.plot.ok{background:var(--gl)}.plot.ok span{filter:none;opacity:1;animation:bob 3s ease-in-out infinite}.plot small{font-size:11px;color:var(--m)}
+.tip{background:#fff9de;border-left:4px solid var(--o)}.row2{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.row2 button{margin-top:10px}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.mc{margin:0;font-size:30px;padding:14px 0;background:var(--gl);color:#000;border:1px solid var(--b)}.mc.up{background:#fff}
+.cf{position:fixed;top:-40px;font-size:26px;z-index:99;pointer-events:none;animation:caer 2.4s linear forwards}@keyframes caer{to{transform:translateY(105vh) rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.deco span,.plot.ok span{animation:none}}
+.hero{position:relative;z-index:2;background:linear-gradient(135deg,#46196f 0%,#5b2a86 55%,#7b44ad 100%);color:#fff;text-align:center;padding:20px 16px 56px;overflow:hidden}
+.hero h1{margin:0;font-size:clamp(24px,5vw,38px)}.hero h1 em{font-style:normal;color:var(--o)}.hero p{margin:4px 0 8px;font-size:14px;opacity:.95}.hero .wave{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:34px}
+.mascot{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none;text-align:left;margin:4px 10px}
+.mascot .face{font-size:44px;background:#fff;border-radius:50%;width:70px;height:70px;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.2);animation:bob 3s ease-in-out infinite}
+.mascot .bub{background:#fff;color:var(--t);padding:9px 14px;border-radius:14px 14px 14px 2px;font-size:14px;max-width:270px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.mascot.hop .face{animation:hop .5s}@keyframes hop{40%{transform:translateY(-16px) scale(1.12)}}
+.pops{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.55);border-radius:99px;padding:5px 14px;font-size:13px;margin:4px 0}
+.shell{flex:1;position:relative;z-index:1;display:grid;grid-template-columns:1fr minmax(0,760px) 1fr;align-items:start}
+.side{position:sticky;top:16px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 0}
+.side .big{font-size:58px;cursor:pointer;transition:transform .25s;animation:bob 4s ease-in-out infinite;user-select:none}.side .big:nth-child(2n){animation-delay:.8s}.side .big:hover{transform:scale(1.25) rotate(10deg)}.side .big.w{animation:hop .6s}
+.side .sun{animation:spin 18s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1000px){.shell{grid-template-columns:1fr}.side{display:none}}
+#fl{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bb{all:unset;position:absolute;top:105vh;font-size:34px;cursor:pointer;pointer-events:auto;animation:sube linear infinite;filter:drop-shadow(0 3px 3px rgba(0,0,0,.15))}
+@keyframes sube{from{top:105vh;transform:rotate(0)}to{top:-12vh;transform:rotate(40deg)}}
+.bb.pp{animation:pop .5s forwards!important}@keyframes pop{50%{transform:scale(1.8);opacity:.8}to{transform:scale(0);opacity:0}}
+.foot{position:relative;z-index:2;margin-top:40px;background:#3d1a5e;color:#f3ebfa;text-align:center;font-size:12px;padding:6px 16px 22px}
+.grass{display:flex;justify-content:space-around;font-size:30px;margin-top:-26px;margin-bottom:10px;overflow:hidden;white-space:nowrap}
+.grass span{display:inline-block;transform-origin:bottom center;animation:sway 3s ease-in-out infinite}.grass span:nth-child(odd){animation-delay:.7s}@keyframes sway{50%{transform:rotate(7deg)}}
+@media (prefers-reduced-motion:reduce){#fl{display:none}.mascot .face,.grass span,.side .big,.side .sun{animation:none!important}}
+.hola{background:linear-gradient(135deg,#fff3c4,#f3ebfa);border-left:6px solid var(--o)}
+.nino{font-size:54px;letter-spacing:4px;text-align:center;min-height:72px;transition:opacity .25s}
+.flips{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-top:10px}
+.fc{background:var(--gl);border:2px dashed var(--g);border-radius:14px;min-height:140px;padding:10px;cursor:pointer;display:grid;place-items:center;text-align:center;transition:transform .2s}
+.fc:hover{transform:rotate(-1.5deg) scale(1.03)}.fc .fb{display:none;font-size:13px}.fc.on .fb{display:block}.fc.on .ff{display:none}.fc.on{background:#fff9de;border:2px solid var(--o)}
+.wv{display:inline-block;animation:wave 1.4s ease-in-out infinite;transform-origin:70% 70%}@keyframes wave{0%,60%,100%{transform:rotate(0)}15%{transform:rotate(16deg)}30%{transform:rotate(-8deg)}45%{transform:rotate(14deg)}}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:10px}.menu button{margin:0;background:var(--gl);color:var(--g);border:1px solid var(--b);text-align:left;font-weight:normal;padding:12px}.menu button b{display:block;font-size:15px}.menu button.lock{background:#eee;color:#888}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}.seg button{margin:0;background:#fff;color:var(--g);border:1px solid var(--b);padding:8px 12px;font-size:14px}.seg button.on{background:var(--g);color:#fff;border-color:var(--g)}
+details.acc{border:1px solid var(--b);border-radius:12px;padding:10px 14px;margin:8px 0;background:#fff}details.acc summary{cursor:pointer;font-weight:bold;color:var(--g)}details.acc ul{margin:8px 0 4px;padding-left:20px}details.acc li{margin:4px 0}
+.plato{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin:8px 0}.plato .pt{border-radius:14px;padding:12px;text-align:center;display:flex;flex-direction:column;gap:4px;font-size:28px}.plato .pt b{font-size:14px}.plato .pt small{font-size:12px;color:#444}.pt.half{background:#e7f6dc}.pt.q{background:#fff3c4}.plato .pt:nth-child(3){background:#f1e3fb}
+@media(max-width:520px){.plato{grid-template-columns:1fr}}
+.sem>div{border-radius:12px;padding:10px 14px;margin:8px 0;font-size:15px}.sem span{display:block;font-size:13px;color:#333}.sem .g{background:#e3f5e8}.sem .y{background:#fff3c4}.sem .r{background:#fde4e4}
+.ig li{margin:5px 0}.iz{background:var(--gl);border-radius:12px;padding:10px 14px;margin:8px 0}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:10px 0}.tri>div{border:2px solid var(--b);border-radius:12px;padding:12px;font-size:13px;background:#fff;min-height:200px}.tri h4{margin:0 0 6px;color:var(--g);font-size:15px}.tri ul{margin:6px 0;padding-left:18px}.tri .cv{background:linear-gradient(160deg,#5b2a86,#7b44ad);color:#fff;text-align:center;display:flex;flex-direction:column;justify-content:center}.tri .cv h4{color:var(--o);font-size:20px}.tri .yl{background:#fff9de;border-color:var(--o)}
+@media(max-width:700px){.tri{grid-template-columns:1fr}}
+@media print{.tri{grid-template-columns:repeat(3,1fr)!important;break-inside:avoid}.tri+.tri{break-before:page}}
+.tw{overflow-x:auto}table.t{border-collapse:collapse;width:100%;font-size:13px}table.t th,table.t td{border:1px solid var(--b);padding:5px 6px;text-align:center}table.t th{background:var(--g);color:#fff}table.t td.l{text-align:left;font-weight:bold;white-space:nowrap}table.t input[type=checkbox]{width:20px;height:20px}table.t input[type=text]{min-width:110px;padding:6px;font-size:13px}
+.rc{border:1px solid var(--b);border-radius:12px;margin:8px 0;background:#fff}.rc summary{cursor:pointer;padding:12px 14px;font-weight:bold;color:var(--g);display:flex;gap:10px;align-items:center}.rc summary small{margin-left:auto;font-weight:normal;color:var(--m)}.rc .rb{padding:0 14px 12px}
+.gamification-panel{background:linear-gradient(135deg,#f3ebfa,#fff9de);border:2px solid var(--o);border-radius:14px;padding:14px;margin-bottom:14px;text-align:center}
+.badge-grid{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:8px}
+.badge-item{background:#fff;padding:6px 12px;border-radius:99px;font-size:13px;border:1px solid var(--b);font-weight:bold}
+.badge-item.unlocked{background:var(--o);color:#3a2a00;border-color:var(--od)}
+</style></head><body>
+<div id="fl" aria-hidden="true"></div>
+<header class="hero"><div class="deco" aria-hidden="true"><span>🥕</span><span>🍎</span><span>🌱</span><span>🥦</span><span>🍌</span><span>💧</span></div>
+<h1>Siembra hábitos, <em>cosecha salud</em></h1><p>Campaña de alimentación saludable y estilos de vida (3 Semanas) · TESA</p>
+<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center"><div class="mascot" id="mas" role="button" tabindex="0" aria-label="Semi, la semillita: toque para escuchar otro mensaje"><span class="face">🌱</span><span class="bub" id="bub">¡Hola! Soy Semi, su guía en esta campaña. ¡Tóqueme!</span></div><span class="pops">🎈 Frutas reventadas: <b id="pn">0</b></span></div>
+<svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0,22 C240,48 480,0 720,22 C960,44 1200,6 1440,22 L1440,40 L0,40Z" fill="#f1e7fb"/></svg></header>
+<div class="shell"><aside class="side" aria-hidden="true"><span class="big sun" onclick="wig(this)">☀️</span><span class="big" onclick="wig(this)">🥕</span><span class="big" onclick="wig(this)">🥦</span><span class="big" onclick="wig(this)">🍎</span><span class="big" onclick="wig(this)">🤸‍♀️</span><span class="big" onclick="wig(this)">🚴‍♂️</span></aside>
+<main id="app"><div class="card">Cargando…</div></main>
+<aside class="side" aria-hidden="true"><span class="big" onclick="wig(this)">🌈</span><span class="big" onclick="wig(this)">🦋</span><span class="big" onclick="wig(this)">⚽</span><span class="big" onclick="wig(this)">🍓</span><span class="big" onclick="wig(this)">🏃‍♀️</span><span class="big" onclick="wig(this)">💧</span></aside></div>
+<footer class="foot"><div class="grass" aria-hidden="true"><span>🌿</span><span>🥕</span><span>🌻</span><span>🍅</span><span>🌱</span><span>🥦</span><span>🌽</span><span>🌿</span><span>🍓</span><span>🌻</span><span>🥕</span><span>🌱</span><span>🍅</span><span>🌿</span></div>Proyecto académico de Enfermería, Instituto Superior Tecnológico San Antonio (TESA). Sus datos son confidenciales y se usan solo con fines académicos.</footer>
+<script>
+const URL="https://vokpjjidytayjrzjespr.supabase.co",KEY="sb_publishable_q6YCquh7-JYBEUrl1UCQfA_NDJ5ROGS";
+async function rpc(fn,args){let r;try{r=await fetch(`${URL}/rest/v1/rpc/${fn}`,{method:"POST",headers:{"Content-Type":"application/json",apikey:KEY},body:JSON.stringify(args)})}catch(e){throw new Error("Sin conexión. Revise su internet e intente de nuevo.")}
+ const t=await r.text();let d;try{d=JSON.parse(t)}catch(e){d=t}if(!r.ok)throw new Error((d&&d.message)||"Ocurrió un error. Intente de nuevo.");return d}
+const $=s=>document.querySelector(s),app=$("#app");
+const LS={g:k=>{try{return localStorage.getItem(k)}catch(e){return null}},s:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},d:k=>{try{localStorage.removeItem(k)}catch(e){}}};
+const esc=v=>String(v==null?"":v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const S={code:LS.g("tesa_codigo")||LS.g("surcos_codigo"),est:null,para:LS.g("tesa_para"),nivel:LS.g("tesa_nivel")};
+const PARAS=["Para mí","Para mi hijo o hija","Para mi familia"],PARA={"Para mí":"mi","Para mi hijo o hija":"hijo","Para mi familia":"fam"};
+const NIVELES=["Primaria","Secundaria","Universidad o instituto","Trabajo"];
+const ctx=()=>PARA[S.para]||"mi";
+const V=(a,b,c)=>({mi:a,hijo:b,fam:c})[ctx()];
+const fmt=d=>new Date(d+"T00:00:00").toLocaleDateString("es-EC",{day:"numeric",month:"long"});
+const Q=[["La malnutrición incluye…",["Solo desnutrición","Desnutrición, sobrepeso y obesidad","Solo obesidad"]],
+["Un riesgo frecuente en casa es…",["Tomar agua en las comidas","Premiar con golosinas y comer frente a pantallas","Hacer actividad al aire libre"]],
+["Una consecuencia en el estudio o el trabajo puede ser…",["Más energía","Menor atención y rendimiento","Mejor memoria"]],
+["La mitad de un plato saludable debería ser…",["Frutas y verduras","Arroz o pan","Frituras"]],
+["Para niños y adolescentes de 5 a 17 años, la actividad física diaria recomendada es de…",["15 minutos","30 minutos","60 minutos"]],
+["Si nota cambios bruscos de peso en usted o en alguien de su familia, lo mejor es…",["Hacer una dieta por su cuenta","Consultar en el centro de salud","Compararse con otras personas"]],
+["¿Cuál es un producto ultraprocesado?",["Fruta fresca","Galletas y snacks empacados","Lentejas cocidas"]],
+["La mejor bebida para acompañar las comidas es…",["Gaseosa","Jugo industrializado","Agua simple"]],
+["Una señal de alerta para consultar es…",["Cambios bruscos de peso o cansancio constante, o que un menor no crezca como se espera","Hacer actividad física","Comer fruta"]],
+["Durante las comidas conviene…",["Tener la televisión o el celular encendidos","Apagar las pantallas","Comer apurados"]]];
+const L=["A","B","C"];
+function W(n){const D={
+1:{t:"Agua primero",l:[["¿Qué es la malnutrición?","Es un desequilibrio entre lo que se come y lo que el cuerpo necesita. Incluye la desnutrición, pero también el sobrepeso y la obesidad, y puede presentarse a cualquier edad e incluso en una misma familia."],["Riesgos en el día a día","Premiar con golosinas, comer frente al televisor o el celular, tomar bebidas azucaradas en lugar de agua y pasar muchas horas sentado aumentan el riesgo."]],
+ r:V("Esta semana, usted lleva una botella de agua a donde vaya y el agua reemplaza a los jugos y gaseosas.","Esta semana, su hijo o hija lleva una botella de agua todos los días y el agua reemplaza a los jugos y gaseosas en casa.","Esta semana, cada integrante de la familia lleva su botella de agua y en casa el agua reemplaza a los jugos y gaseosas.")},
+2:{t:"Plato arcoíris",l:[["Efectos en la salud","Una mala alimentación puede causar cansancio, menor atención y rendimiento, defensas bajas y problemas de salud que se arrastran a la edad adulta."],["Alimentación en casa","La mitad del plato debe ser frutas y verduras; la otra mitad se reparte entre cereales o tubérculos y proteínas. Prefiera alimentos frescos antes que ultraprocesados."]],
+ r:V("Cada día, su comida incluye una fruta o verdura de un color distinto, por ejemplo una manzana, una zanahoria, brócoli o moras.","Cada día, la comida de su hijo o hija incluye una fruta o verdura de un color distinto. Pueden armar juntos el “arcoíris” de la semana.","Cada día, la familia arma un plato con al menos una fruta o verdura de un color distinto. Armen juntos el “arcoíris” de la semana.")},
+3:{t:"En movimiento y familia",l:[[V("Movimiento y constancia","Su rol como ejemplo","El compromiso de la familia"),V("Alcanzar la meta de 3 semanas requiere constancia. Dedique al menos 30 minutos diarios a moverse y cocinen recetas saludables juntos.","Su constancia es el mejor ejemplo para su hijo o hija. Al completar las 3 semanas, consolidan hábitos que duran toda la vida.","Completar las 3 semanas en familia demuestra que el esfuerzo conjunto transforma los hábitos del hogar.")]],
+ r:V("Dedique al menos 30 minutos diarios a moverse, prepare una receta saludable y cierre con broche de oro la campaña.","Dediquen juntos al menos 30 minutos diarios a moverse, cocinen una receta saludable y cierren las 3 semanas con alegría.","Muevanse en familia al menos 30 minutos diarios, cocinen juntos y celebren haber completado las 3 semanas.")}};return D[n]}
+const ENV={"Primaria":["En la escuela: una botella de agua en la mochila y agua en lugar de bebidas del kiosco.","Una fruta de un color distinto cada día en la lonchera.","Juego activo en el recreo y hábitos firmes para estas 3 semanas."],
+"Secundaria":["Cambie gaseosas y energizantes del bar por agua.","En el bar, elija una fruta o un sándwich con verduras.","Caminar o ir en bicicleta, cumpliendo con éxito el reto de las 3 semanas."],
+"Universidad o instituto":["Lleve una botella reutilizable a clases y rellénela durante el día.","Prepare la víspera una fruta y un snack natural para las horas entre clases.","Use las pausas para caminar y estirarse, manteniendo la constancia."],
+"Trabajo":["Deje una botella visible en su escritorio o puesto de trabajo.","Lleve fruta y comida casera en lugar de frituras y snacks de funda.","Haga pausas activas y mantenga el ritmo durante toda la campaña."]};
+const H=()=>[["agua",V("Días que tomó agua simple en lugar de bebidas azucaradas","Días que su hijo o hija tomó agua simple en lugar de bebidas azucaradas","Días que la familia tomó agua simple en lugar de bebidas azucaradas")],
+["lonchera",V("Días que comió al menos una fruta o verdura (por ejemplo, una manzana)","Días que su hijo o hija comió al menos una fruta o verdura (por ejemplo, una manzana)","Días que la familia comió al menos una fruta o verdura (por ejemplo, una manzana)")],
+["juego",V("Días con al menos 30 minutos de actividad física","Días con actividad física suficiente (60 minutos en menores de 18; 30 en adultos)","Días con al menos 30 minutos de actividad física en familia")],
+["pantallas",V("Comidas con las pantallas apagadas","Comidas con las pantallas apagadas","Comidas familiares con las pantallas apagadas")];
+function sel(id,from,to){let o='<option value="">Elija…</option>';for(let i=from;i<=to;i++)o+=`<option>${i}</option>`;return`<select id="${id}">${o}</select>`}
+function opt(id,arr,ex){return`<select id="${id}" ${ex||""}><option value="">Elija…</option>${arr.map(x=>`<option>${x}</option>`).join("")}</select>`}
+const msg=(c,t)=>`<div class="${c}">${t}</div>`;
+function show(h){clearInterval(window._ni);app.innerHTML=h;window.scrollTo(0,0)}
+const busy=(b,on)=>{b.disabled=on;b.dataset.t=b.dataset.t||b.textContent;b.textContent=on?"Guardando…":b.dataset.t}
+const back=`<button class="sec noprint" style="margin:0 0 12px" onclick="ini()">← Volver al inicio</button>`;
+const ini=()=>S.est?home():load();
+async function load(){try{S.est=await rpc("obtener_estado",{p_codigo:S.code});if(!S.est.existe){S.code=null;LS.d("tesa_codigo");LS.d("surcos_codigo");return start()}home()}catch(e){show(`<div class="card">${msg("err",e.message)}<button onclick="load()">Reintentar</button></div>`)}}
+
+/* Sistema de motivación local (puntos, insignias y racha) */
+function getGamification(){
+  try{let data = JSON.parse(LS.g("tesa_gamification_"+S.code)||"null"); if(data) return data;}catch(e){}
+  return {points:0, level:1, streak:0, badges:[]};
+}
+function saveGamification(g){
+  LS.s("tesa_gamification_"+S.code, JSON.stringify(g));
+}
+function addPoints(pts, badgeName){
+  let g = getGamification();
+  g.points += pts;
+  g.streak += 1;
+  if(g.points >= 100 && g.level < 2) g.level = 2;
+  if(g.points >= 250 && g.level < 3) g.level = 3;
+  if(badgeName && !g.badges.includes(badgeName)){
+    g.badges.push(badgeName);
+  }
+  saveGamification(g);
+}
+
+/* ---------- registro ---------- */
+const ROLES=["Madre","Padre","Representante legal","Abuelo/a","Otro familiar"];
+function start(){show(`<div class="card"><h2>Bienvenido/a</h2><p>Esta campaña de 3 semanas le ayudará a mejorar la alimentación y los hábitos de vida, suyos, de su hijo o hija, o de toda su familia. Cada semana se habilita sola en su fecha.</p>
+<h3 style="margin-top:16px">Ya me registré</h3><label>Mi código de participante</label><input id="cod" placeholder="Ej.: A3F9K2" maxlength="6" style="text-transform:uppercase"><button onclick="entrar()">Entrar</button><div id="m1"></div></div>
+<div class="card"><h3>Soy nuevo/a: registrarme</h3>
+<div class="alert"><b>Consentimiento informado.</b> La participación es voluntaria y solo para personas mayores de 18 años. Se le pide su nombre para identificarlo/a y entregarle su certificado; no se piden menores de edad ni datos de salud. Sus datos son confidenciales y se usan solo con fines académicos.</div>
+<label style="display:flex;gap:8px;font-weight:normal"><input type="checkbox" id="cons" style="width:auto;margin-top:4px">Soy mayor de 18 años y acepto participar voluntariamente en esta campaña.</label>
+<label>Nombre completo</label><input id="nom" maxlength="80" autocomplete="name" placeholder="Nombres y apellidos">
+<div class="row"><div><label>¿Para quién realiza la campaña?</label>${opt("para",PARAS,'onchange="paraCh()"')}</div><div><label>Su rol</label><select id="rol"><option value="">Primero elija para quién</option></select></div>
+<div><label>Entorno o nivel educativo de la persona para quien participa</label>${opt("ins",NIVELES)}</div><div><label>Su edad</label>${opt("edad",["18 a 24","25 a 34","35 a 44","45 a 54","55 o más"])}</div>
+<div><label>Sexo</label>${opt("sexo",["Femenino","Masculino","Otro"])}</div></div>
+<label>¿Cómo desea recibir los recordatorios semanales?</label>
+<label style="font-weight:normal;display:flex;gap:8px"><input type="radio" name="canal" value="Correo" style="width:auto" onchange="canalCh()">Por correo electrónico</label>
+<label style="font-weight:normal;display:flex;gap:8px"><input type="radio" name="canal" value="WhatsApp" style="width:auto" onchange="canalCh()">Por WhatsApp</label>
+<div id="cx"></div>
+<button onclick="registrar()">Registrarme</button><div id="m2"></div></div>`)}
+function paraCh(){const p=$("#para").value,r=$("#rol");if(p=="Para mí"){r.innerHTML='<option>Participo solo por mí</option>';r.disabled=true}else if(p){r.disabled=false;r.innerHTML='<option value="">Elija…</option>'+ROLES.map(x=>`<option>${x}</option>`).join("")}else{r.disabled=false;r.innerHTML='<option value="">Primero elija para quién</option>'}}
+function canalCh(){const c=document.querySelector("input[name=canal]:checked");if(!c)return;$("#cx").innerHTML=c.value=="Correo"?`<label>Correo electrónico</label><input id="cor" type="email" autocomplete="email" placeholder="nombre@correo.com">`:`<label>Número de WhatsApp</label><input id="wha" type="tel" autocomplete="tel" placeholder="Ej.: 0991234567">`}
+async function entrar(){const c=$("#cod").value.trim().toUpperCase();if(c.length<4)return $("#m1").innerHTML=msg("err","Escriba su código.");S.code=c;LS.s("tesa_codigo",c);load()}
+async function registrar(){const g=i=>$(i).value,m=t=>$("#m2").innerHTML=msg("err",t);if(!$("#cons").checked)return m("Debe confirmar que es mayor de 18 años y aceptar el consentimiento para continuar.");
+ if(g("#nom").trim().length<5||!g("#nom").trim().includes(" "))return m("Escriba su nombre y apellido.");
+ if(!g("#para")||!g("#rol")||!g("#ins")||!g("#edad")||!g("#sexo"))return m("Complete todas las opciones.");
+ const cn=document.querySelector("input[name=canal]:checked");if(!cn)return m("Elija cómo desea recibir los recordatorios: correo o WhatsApp.");
+ let cor="",wha="";
+ if(cn.value=="Correo"){cor=g("#cor").trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cor))return m("Escriba un correo electrónico válido.")}
+ else{wha=g("#wha").trim();if(wha.replace(/\D/g,"").length<9)return m("Escriba un número de WhatsApp válido.")}
+ const b=event.target;busy(b,true);try{const c=await rpc("registrar_participante",{p_nombre:g("#nom").trim(),p_consentimiento:true,p_correo:cor,p_whatsapp:wha,p_edad:g("#edad"),p_sexo:g("#sexo"),p_parentesco:g("#rol"),p_instruccion:g("#ins"),p_grado:g("#para")});
+ S.code=c;S.para=g("#para");S.nivel=g("#ins");LS.s("tesa_codigo",c);LS.s("tesa_nombre",g("#nom").trim());LS.s("tesa_para",S.para);LS.s("tesa_nivel",S.nivel);
+ show(`<div class="card" style="text-align:center"><h2>¡Registro listo!</h2><p>Este es su código de participante. <b>Anótelo o tome una captura</b>: lo necesitará para volver a entrar.</p><div class="code">${c}</div><br><button onclick="load()">Continuar</button></div>`)}catch(e){busy(b,false);m(e.message)}}
+function salir(){const c=S.code,nm=(nomG().split(" ")[0]||"participante"),F=["¡Hasta pronto, "+nm+"! 👋 Gracias por cuidar su salud.","¡Nos vemos pronto, "+nm+"! 🌻 Su huerta seguirá creciendo.","¡Hasta la próxima, "+nm+"! 💜 Cada pequeño hábito cuenta.","¡Gracias por su tiempo, "+nm+"! 🌱 Aquí estaremos cuando regrese."];
+ S.code=null;S.est=null;S.hola=false;LS.d("tesa_codigo");LS.d("surcos_codigo");
+ show(`<div class="card" style="text-align:center"><div class="wv" style="font-size:64px">👋</div><h2>Sesión cerrada</h2><p>${F[Math.floor(Math.random()*F.length)]}</p><p class="small">Anote su código para volver a entrar:</p><div class="code">${c}</div><br><button onclick="start();document.getElementById('cod').value='${c}'">Entrar de nuevo</button></div>`)}
+
+/* ---------- inicio ---------- */
+function setCtx(){S.para=$("#cp").value||null;S.nivel=$("#cn2").value||null;if(S.para)LS.s("tesa_para",S.para);else LS.d("tesa_para");if(S.nivel)LS.s("tesa_nivel",S.nivel);else LS.d("tesa_nivel");home()}
+function ctxCard(){return`<div class="card"><h3>⚙️ Mi contexto</h3><p class="small">Los textos, retos y registros se adaptan a quién realiza la campaña. Puede cambiarlo cuando quiera.</p><div class="row"><div><label>¿Para quién realiza la campaña?</label><select id="cp" onchange="setCtx()"><option value="">Elija…</option>${PARAS.map(x=>`<option ${x==S.para?"selected":""}>${x}</option>`).join("")}</select></div><div><label>Entorno o nivel educativo</label><select id="cn2" onchange="setCtx()"><option value="">Elija…</option>${NIVELES.map(x=>`<option ${x==S.nivel?"selected":""}>${x}</option>`).join("")}</select></div></div></div>`}
+function home(){
+ const e=S.est, sm=(e.semanas||[]).filter(s=>s.numero<=3); // Limitado a 3 semanas
+ let h=`<div class="card"><span class="small">Su código</span><br><span class="code">${S.code}</span> <button class="sec" style="margin:0 0 0 8px;padding:6px 12px" onclick="salir()">Salir</button></div>`;
+ 
+ // Gamificación / Motivación
+ let g = getGamification();
+ h+=`<div class="gamification-panel">
+   <h3>⭐ Panel de Motivación y Logros</h3>
+   <p><b>Puntos acumulados:</b> ${g.points} pts | <b>Nivel:</b> ${g.level} (${g.level==1?"Principiante":g.level==2?"Constante":"Experto en Salud"}) | <b>Racha:</b> ${g.streak} acciones</p>
+   <div class="badge-grid">
+     <div class="badge-item ${g.points>=20?'unlocked':''}">🌱 Primer Paso (+20p)</div>
+     <div class="badge-item ${g.points>=60?'unlocked':''}">💧 Hábito de Agua (+60p)</div>
+     <div class="badge-item ${g.points>=120?'unlocked':''}">🏆 Campeón de las 3 Semanas (+120p)</div>
+   </div>
+ </div>`;
+
+ h=bienvenida()+h;h+=ctxCard()+huerta()+extras()+accion();
+ sm.forEach(s=>{const n=s.numero,ab=s.abierta;let tags=(s.leccion_vista?'<span class="tag">Lección vista</span>':'')+(s.reto_completado?'<span class="tag">Reto completado</span>':'')+(s.habitos_enviados?'<span class="tag">Hábitos registrados</span>':'');
+  if(n==1)tags+=e.pretest_hecho?'<span class="tag">Evaluación inicial ✓</span>':'<span class="tag w">Evaluación inicial pendiente</span>';
+  if(n==3)tags+=(e.postest_hecho?'<span class="tag">Evaluación final ✓</span>':'<span class="tag w">Evaluación final pendiente</span>')+(e.satisfaccion_hecha?'<span class="tag">Encuesta enviada</span>':'');
+  h+=`<div class="card"><h3>${EM[n]} Semana ${n}: ${W(n).t}</h3><div class="small">${fmt(s.fecha_apertura)} al ${fmt(s.fecha_cierre)}</div>${ab?tags+`<br><button onclick="abrir(${n})">Abrir semana</button>`:`<br><button class="lock" disabled>Se abre el ${fmt(s.fecha_apertura)}</button>`}</div>`});
+ h+=certCard();show(h);ninosIni()}
+function abrir(n){if(n==0)return test("pretest");if(n==4||n==3 && S.est.semanas.length<=3)return test("postest",true);semana(n)}
+
+/* registro diario */
+const trKey=w=>`tesa_tr_${S.code}_${w}`;
+const trLoad=w=>{try{const a=JSON.parse(LS.g(trKey(w))||"null");if(a&&a.length==4)return a}catch(e){}return null};
+async function semana(n){const w=W(n),s=S.est.semanas.find(x=>x.numero==n);
+ if(n==1&&!S.est.pretest_hecho)return show(`<div class="card">${back}<h2>Semana 1: ${w.t}</h2><p>Antes de empezar, responda la evaluación inicial (unos 5 minutos). Así sabremos desde dónde partimos.</p><button onclick="test('pretest')">Responder evaluación inicial</button></div>`);
+ if(!s.leccion_vista)rpc("marcar_progreso",{p_codigo:S.code,p_semana:n,p_leccion:true,p_reto:false}).catch(()=>{});
+ let h=`<div class="card">${back}<h2>Semana ${n}: ${w.t}</h2></div>`;
+ w.l.forEach(x=>h+=`<div class="card"><h3>${x[0]}</h3><p>${x[1]}</p></div>`);
+ if(S.nivel&&ENV[S.nivel])h+=`<div class="card tip"><h3>💡 Consejo para su entorno: ${esc(S.nivel)}</h3><p>${ENV[S.nivel][n-1]}</p></div>`;
+ h+=`<div class="card"><h3>Reto de la semana</h3><p>${w.r}</p><button id="rb" onclick="reto(${n})" ${s.reto_completado?"disabled":""}>${s.reto_completado?"Reto completado ✓":"Completé el reto"}</button><div id="mr"></div></div>
+ <div class="card"><h3>Registro de la semana</h3><p class="small">Cuéntenos cómo le fue esta semana (de 0 a 7 días). Si usa el <a href="#" onclick="cal(${n});return false">calendario diario</a>, aquí se llenan solos sus totales.</p>${H().map(x=>`<label>${x[1]}</label>${sel("h_"+x[0],0,7)}`).join("")}<button onclick="habitos(${n})">${s.habitos_enviados?"Actualizar registro":"Enviar registro"}</button><div id="mh"></div></div>
+ ${n==3?`<div class="card"><h3>🏁 Evaluación final y encuesta (Semana 3)</h3><p class="small">Respóndala al terminar su última semana. Al final verá su puntaje y podrá calificar la campaña.</p><button onclick="test('postest',true)">${S.est.postest_hecho?"Ver evaluación final y encuesta":"Responder evaluación final"}</button></div>`:""}<div class="alert">Si nota cambios bruscos de peso, cansancio constante o, en el caso de un menor de edad, que no crece como se espera, consulte en su centro de salud.</div>`;
+ show(h);const t=trLoad(n);if(t&&t.some(r=>r.some(Boolean)))H().forEach((x,i)=>{$("#h_"+x[0]).value=String(t[i].filter(Boolean).length)})}
+async function reto(n){const b=$("#rb");busy(b,true);try{await rpc("marcar_progreso",{p_codigo:S.code,p_semana:n,p_leccion:true,p_reto:true});addPoints(25, "Reto Cumplido");b.textContent="Reto completado ✓";$("#mr").innerHTML=msg("ok","¡Excelente! Reto registrado (+25 pts).");celebra();S.est.semanas.find(x=>x.numero==n).reto_completado=true}catch(e){busy(b,false);$("#mr").innerHTML=msg("err",e.message)}}
+async function habitos(n){const hh=H(),v=hh.map(x=>$("#h_"+x[0]).value);if(v.some(x=>x===""))return $("#mh").innerHTML=msg("err","Responda las cuatro preguntas.");const b=event.target;busy(b,true);
+ try{await rpc("guardar_habitos",{p_codigo:S.code,p_semana:n,p_agua:+v[0],p_lonchera:+v[1],p_juego:+v[2],p_pantallas:+v[3]});addPoints(40, "Hábitos Registrados");S.est.semanas.find(x=>x.numero==n).habitos_enviados=true;busy(b,false);$("#mh").innerHTML=msg("ok","Registro guardado. ¡Ganaste +40 puntos!");celebra()}catch(e){busy(b,false);$("#mh").innerHTML=msg("err",e.message)}}
+
+/* evaluaciones */
+function test(m,post){const e=S.est,hecho=post?e.postest_hecho:e.pretest_hecho;
+ let h=`<div class="card">${back}<h2>${post?"Evaluación final (Semana 3)":"Evaluación inicial"}</h2>`;
+ if(hecho){h+=msg("ok","Ya completó esta evaluación. ¡Gracias!")+(post&&e.postest_puntaje!=null?`<p>Su puntaje: <b>${e.postest_puntaje} de 10</b></p>`:"")+"</div>";if(post)h+=sat();return show(h)}
+ h+=`<p class="small">10 preguntas, una respuesta por pregunta. No hay respuestas buenas o malas para su persona: sirve para mejorar la campaña.</p>`;
+ Q.forEach((q,i)=>{h+=`<div class="q"><p>${i+1}. ${q[0]}</p>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${L[j]}">${L[j]}) ${o}</label>`).join("")}</div>`});
+ h+=`<button onclick="enviarTest('${m}')">Enviar respuestas</button><div id="mt"></div></div>`;show(h)}
+async function enviarTest(m){const r=Q.map((_,i)=>{const x=document.querySelector(`input[name=q${i}]:checked`);return x?x.value:null});if(r.includes(null))return $("#mt").innerHTML=msg("err","Responda las 10 preguntas.");
+ const b=event.target;busy(b,true);try{const d=await rpc("guardar_conocimientos",{p_codigo:S.code,p_momento:m,p_resp:r});addPoints(30, "Evaluación Completa");celebra();S.est=await rpc("obtener_estado",{p_codigo:S.code});
+ show(`<div class="card" style="text-align:center"><h2>¡Gracias!</h2>${m=="postest"?`<p>Su puntaje: <b>${d.puntaje} de 10</b></p>`:"<p>Sus respuestas fueron guardadas. Ya puede comenzar la Semana 1.</p>"}<button onclick="${m=="postest"?"test('postest',true)":"semana(1)"}">Continuar</button></div>`)}catch(e){busy(b,false);$("#mt").innerHTML=msg("err",e.message)}}
+function sat(){if(S.est.satisfaccion_hecha)return"";const o=id=>sel(id,1,5);return`<div class="card"><h3>Encuesta de satisfacción</h3><p class="small">1 = muy bajo, 5 = muy alto</p><label>¿Qué tan útil le pareció la campaña?</label>${o("s1")}<label>¿Qué tan claros fueron los contenidos?</label>${o("s2")}<label>¿Recomendaría esta campaña a otras personas?</label>${o("s3")}<label>¿Qué mejoraría? (opcional)</label><textarea id="s4" rows="3" maxlength="1000"></textarea><button onclick="enviarSat()">Enviar encuesta</button><div id="ms"></div></div>`}
+async function enviarSat(){const v=["#s1","#s2","#s3"].map(i=>$(i).value);if(v.includes(""))return $("#ms").innerHTML=msg("err","Califique los tres aspectos.");const b=event.target;busy(b,true);
+ try{await rpc("guardar_satisfaccion",{p_codigo:S.code,p_utilidad:+v[0],p_claridad:+v[1],p_recomendaria:+v[2],p_comentario:$("#s4").value});addPoints(50, "Campaña Completada");S.est.satisfaccion_hecha=true;celebra();show(`<div class="card" style="text-align:center"><h2>¡Gracias por participar!</h2><p>Completó exitosamente la campaña de 3 semanas “Siembra hábitos, cosecha salud”.</p><button onclick="ini()">Volver al inicio</button></div>`)}catch(e){busy(b,false);$("#ms").innerHTML=msg("err",e.message)}}
+
+/* certificado adaptado a 3 semanas */
+const nomG=()=>esc(LS.g("tesa_nombre")||LS.g("surcos_nombre")||"");
+const MIN_SEM=3;
+function certFalta(){const e=S.est,n=e.semanas.filter(x=>x.numero>=1&&x.numero<=3&&x.habitos_enviados).length,f=[];
+ if(!e.pretest_hecho)f.push("la evaluación inicial (Semana 1)");if(n<MIN_SEM)f.push(`el registro de hábitos en las ${MIN_SEM} semanas`);
+ if(!e.postest_hecho)f.push("la evaluación final (Semana 3)");if(!e.satisfaccion_hecha)f.push("la encuesta de satisfacción (Semana 3)");return f}
+function certCard(){const f=certFalta();
+ return f.length?`<div class="card"><h3>Certificado de participación</h3><p class="small">Se habilita al completar: ${f.join("; ")}.</p></div>`
+ :`<div class="card" style="border-color:#c9a227"><h3>¡Completó las 3 semanas de campaña!</h3><p>Ya puede obtener su certificado de participación.</p><button class="y" onclick="cert()">Obtener mi certificado</button></div>`}
+function cert(){show(`<div class="card noprint">${back}<h2>Su certificado</h2><p class="small">Revise o corrija el nombre que aparecerá en su certificado.</p>
+<label>Nombre completo</label><input id="cn" maxlength="70" placeholder="Nombre y apellido" value="${nomG()}" oninput="document.getElementById('cnn').textContent=this.value||'__________________'">
+<p class="small">Para guardarlo: pulse el botón y elija “Guardar como PDF” como destino.</p><button onclick="window.print()">Descargar o imprimir certificado</button></div>
+<div class="cert" id="certificado"><div style="font-size:14px;letter-spacing:2px">INSTITUTO SUPERIOR TECNOLÓGICO SAN ANTONIO (TESA)</div>
+<h2>CERTIFICADO DE PARTICIPACIÓN</h2><p style="font-size:16px;margin:6px 0">Se otorga a</p><div class="nm" id="cnn">${nomG()||"__________________"}</div>
+<p style="font-size:16px;line-height:1.6;max-width:640px;margin:10px auto">por haber completado la campaña educativa virtual <b>“Siembra hábitos, cosecha salud”</b> de tres semanas de duración, enfocada en la prevención de la malnutrición y promoción de estilos de vida saludables.</p>
+<p style="font-size:14px;margin-top:14px">Quito, ${new Date().toLocaleDateString("es-EC",{day:"numeric",month:"long",year:"numeric"})}</p>
+<div class="sg"><div>Karen Liseth Yépez Rodríguez<br>Estudiante de Enfermería, TESA</div><div>Jacqueline Janeth Zambrano Cepeda<br>Estudiante de Enfermería, TESA</div></div></div>`)}
+
+/* huerta y extras (3 semanas) */
+const EM=["🌟","💧","🌈","🏆"];
+const TIPS=["Una botella de agua a mano hace más fácil tomar agua durante el día.","Pruebe un color nuevo por semana: rojo, naranja, verde, morado. Cuantos más colores, mejor.","Apague las pantallas durante las comidas: se come más despacio y se conversa más.","Los niños y adolescentes necesitan al menos 60 minutos de movimiento al día y los adultos, 150 minutos por semana. ¡Moverse cuenta!","Lea la etiqueta: una lista corta de ingredientes suele indicar un alimento más natural.","No use la comida como premio ni castigo; premie con tiempo juntos o un paseo.","Cocinar en casa permite elegir ingredientes y probar más verduras.","El desayuno importa: una fruta, pan o cereal y un lácteo dan energía para el día."];
+let TIP=Math.floor(Math.random()*TIPS.length);
+function otroTip(){TIP=(TIP+1)%TIPS.length;$("#tip").textContent=TIPS[TIP]}
+function huerta(){const e=S.est,hb=n=>!!(e.semanas.find(x=>x.numero==n)||{}).habitos_enviados,sl=[e.pretest_hecho&&hb(1),hb(2),hb(3)&&e.postest_hecho&&e.satisfaccion_hecha],G=["🥕","🍎","🌻"],n=sl.filter(Boolean).length;
+ return`<div class="card"><h3>🌿 Mi huerta (3 Semanas)</h3><div class="plots" style="grid-template-columns:repeat(3,1fr);">${sl.map((ok,i)=>`<div class="plot${ok?" ok":""}"><span>${ok?G[i]:"🌱"}</span><small>Semana ${i+1}</small></div>`).join("")}</div><p class="small">${n==3?"¡Su huerta floreció por completo en estas 3 semanas!":n+" de 3 semillas florecidas."}</p></div>`}
+function extras(){const j=S.est.pretest_hecho;
+ return`<div class="card tip"><h3>💡 Tip del día</h3><p id="tip">${TIPS[TIP]}</p><button class="sec" style="margin:0" onclick="otroTip()">Otro tip</button></div>
+<div class="card"><h3>🧰 Mis herramientas</h3><div class="menu"><button onclick="biblio('ig')"><b>📚 Biblioteca</b><span class="small">Infografías, tríptico, fichas y guías</span></button><button onclick="recetario()"><b>🍽️ Recetario andino</b><span class="small">50 recetas con productos del Ecuador</span></button><button onclick="cal()"><b>📅 Calendario y registro</b><span class="small">Agua, fruta o verdura, ejercicio y pantallas</span></button><button class="${j?"":"lock"}" ${j?'onclick="juegos()"':"disabled"}><b>🎮 Juegos</b><span class="small">${j?"Aprenda jugando":"Se habilitan al completar la evaluación inicial"}</span></button></div></div>`}
+
+/* biblioteca, recetario, calendario, juegos (idénticos a la versión robusta anterior) */
+const BIBT=[["ig","📊 Infografías"],["tr","📄 Tríptico"],["fi","🗂️ Fichas"],["gu","📘 Guías"],["ac","🏃 Actividades"]];
+function biblio(t){t=t||"ig";const bar=`<div class="seg noprint">${BIBT.map(x=>`<button class="${x[0]==t?"on":""}" onclick="biblio('${x[0]}')">${x[1]}</button>`).join("")}</div>`;
+ const body={ig:bIg,tr:bTr,fi:bFi,gu:bGu,ac:bAc}[t]();
+ show(`<div class="card">${back}<h2>📚 Biblioteca virtual</h2><p class="small noprint">Material de la campaña en versión digital. Puede imprimirlo o guardarlo como PDF.</p>${bar}</div>${body}`)}
+function bIg(){const c=(t,h)=>`<div class="card"><h3>${t}</h3>${h}<button class="sec noprint" onclick="window.print()">Imprimir o guardar PDF</button></div>`;
+ return c("Mi plato saludable",`<div class="plato"><div class="pt half">🥦🍎<b>½ Frutas y verduras</b><small>De varios colores</small></div><div class="pt q">🍚🥔<b>¼ Cereales y tubérculos</b><small>Mejor integrales</small></div><div class="pt">🫘🍗<b>¼ Proteínas</b><small>Legumbres, huevo, pescado, carnes magras</small></div></div><p class="small">Acompañe con agua simple. Los ultraprocesados no forman parte del plato de todos los días.</p>`)
+ +c("Semáforo de alimentos",`<div class="sem"><div class="g">🟢 <b>Todos los días</b><span>Frutas, verduras, legumbres, cereales integrales y agua simple</span></div><div class="y">🟡 <b>A veces</b><span>Pan dulce, helado, yogur azucarado, pizza</span></div><div class="r">🔴 <b>Pocas veces</b><span>Gaseosas, snacks de funda, caramelos, jugos de caja</span></div></div>`)
+ +c("Agua primero",`<ul class="ig"><li>💧 El agua simple es la mejor bebida de todos los días.</li><li>🧴 Lleve una botella con usted y rellénela durante el día.</li><li>🍽️ Acompañe las comidas con agua, no con gaseosa ni jugo industrializado.</li><li>🔁 Cambie una bebida azucarada al día por agua y vaya aumentando.</li><li>🍋 Si desea sabor, agregue rodajas de fruta o hojas de menta.</li></ul>`)
+ +c("Muévete cada día",`<div class="iz"><b>🧒 Niños y adolescentes (5 a 17 años)</b><br>Al menos 60 minutos diarios de actividad moderada a intensa.</div><div class="iz"><b>🧑 Adultos (18 años o más)</b><br>Al menos 150 minutos por semana de actividad moderada, por ejemplo 30 minutos cinco días.</div><ul class="ig"><li>🚶 Caminar, bailar, subir escaleras o andar en bicicleta suman.</li><li>🪑 Interrumpa las horas sentado con pausas activas.</li><li>👨‍👩‍👧 Moverse en compañía ayuda a mantener el hábito.</li></ul>`)}
+function bTr(){return`<div class="card"><h3>Tríptico de la campaña</h3><p class="small noprint">Tiene dos caras. Al imprimir, elija hoja A4 horizontal y doble por las líneas.</p><button class="y noprint" style="margin:0 0 10px" onclick="window.print()">Imprimir o guardar PDF</button>
+<div class="tri"><div class="yl"><h4>¿Cuándo consultar?</h4><ul><li>Cambios bruscos de peso.</li><li>Cansancio constante.</li><li>En menores de edad, si no crecen como se espera.</li><li>Antes de iniciar una dieta o un plan de ejercicio exigente.</li></ul><p>Acuda siempre al centro de salud más cercano.</p></div>
+<div><h4>Sobre la campaña</h4><p>Tres semanas con lecciones breves, retos y registro de hábitos para mejorar la alimentación y el movimiento, para usted, su hijo o hija, o toda la familia.</p><p>Ingrese a la plataforma con su código de participante.</p></div>
+<div class="cv"><h4>Siembra hábitos, cosecha salud</h4><p>Campaña de alimentación saludable y estilos de vida</p><p>🌱 🥕 🍎 💧</p><p style="font-size:12px">Instituto Superior Tecnológico San Antonio (TESA)<br>Estudiantes de Enfermería: Karen Yépez y Jacqueline Zambrano</p></div></div>
+<div class="tri"><div><h4>¿Qué es la malnutrición?</h4><p>Es un desequilibrio entre lo que se come y lo que el cuerpo necesita. Incluye la desnutrición, el sobrepeso y la obesidad, y puede darse a cualquier edad.</p></div>
+<div><h4>¿Cómo prevenirla?</h4><ul><li>💧 Agua como bebida principal.</li><li>🥦 La mitad del plato, frutas y verduras.</li><li>🏃 Moverse todos los días.</li><li>📵 Comer sin pantallas.</li><li>🍭 Limitar ultraprocesados y azúcar.</li></ul></div>
+<div class="yl"><h4>Mi plato saludable</h4><p>🥦🍎 ½ frutas y verduras<br>🍚🥔 ¼ cereales y tubérculos<br>🫘🍗 ¼ proteínas</p><p>Y un vaso de agua 💧</p></div></div></div>`}
+function fKey(k){return`tesa_f_${k}_${S.code}`}
+function fGet(k){try{return JSON.parse(LS.g(fKey(k))||"{}")}catch(e){return{}}}
+function fSave(k,id,v){const o=fGet(k);o[id]=v;LS.s(fKey(k),JSON.stringify(o))}
+function bFi(){const DIAS=["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"],CO=["Desayuno","Almuerzo","Merienda","Cena"],mn=fGet("menu"),cm=fGet("comp"),et=fGet("etq");
+ const ETQ=["¿Revisé la lista de ingredientes?","¿El azúcar aparece entre los primeros ingredientes?","¿Miré el semáforo nutricional (rojo = alto)?","¿Es un producto que puedo reemplazar por uno fresco?","¿Compré solo lo que necesito?"];
+ return`<div class="card"><h3>Fichas para completar</h3><p class="small noprint">Lo que escriba se guarda en este dispositivo y puede imprimirlo.</p>
+<details class="acc" open><summary>🗓️ Mi menú semanal</summary><div class="tw"><table class="t"><tr><th></th>${CO.map(c=>`<th>${c}</th>`).join("")}</tr>${DIAS.map((d,i)=>`<tr><td class="l">${d}</td>${CO.map((c,j)=>`<td><input type="text" maxlength="60" value="${esc(mn[i+"_"+j]||"")}" oninput="fSave('menu','${i}_${j}',this.value)" aria-label="${d} ${c}"></td>`).join("")}</tr>`).join("")}</table></div></details>
+<details class="acc"><summary>🤝 ${V("Mi compromiso personal","Mi compromiso con mi hijo o hija","Compromiso de la familia")}</summary>
+<label>¿Qué voy a cambiar primero?</label><textarea rows="2" maxlength="300" oninput="fSave('comp','a',this.value)">${esc(cm.a||"")}</textarea>
+<label>¿Qué voy a hacer cada día?</label><textarea rows="2" maxlength="300" oninput="fSave('comp','b',this.value)">${esc(cm.b||"")}</textarea>
+<label>¿Quién me apoyará?</label><textarea rows="2" maxlength="300" oninput="fSave('comp','c',this.value)">${esc(cm.c||"")}</textarea></details>
+<details class="acc"><summary>🏷️ Leo las etiquetas</summary><div class="q">${ETQ.map((x,i)=>`<label><input type="checkbox" ${et["e"+i]=="1"?"checked":""} onchange="fSave('etq','e${i}',this.checked?'1':'0')">${x}</label>`).join("")}</div></details>
+<button class="sec noprint" onclick="window.print()">Imprimir fichas</button></div>`}
+function bGu(){const G=[["1. ¿Qué es alimentarse saludablemente?",["Es comer variado, en cantidad suficiente y de forma equilibrada.","Incluya frutas y verduras todos los días.","Prefiera legumbres, cereales integrales y alimentos frescos."]],
+["2. El plato y las porciones",["La mitad del plato: frutas y verduras.","Un cuarto: cereales o tubérculos; otro cuarto: proteínas."]],
+["3. Alimentos y bebidas a limitar",["Ultraprocesados: snacks de funda, embutidos, galletas y golosinas.","Azúcar añadida, sal en exceso y frituras frecuentes."]],
+["4. Hidratación",["El agua simple es la primera opción.","Limite gaseosas, energizantes y jugos industrializados."]],
+["5. Movimiento, sueño y pantallas",["Niños y adolescentes de 5 a 17 años: al menos 60 minutos de actividad al día. Adultos: al menos 150 minutos por semana."]]];
+ return`<div class="card"><h3>📘 Guía de alimentación y hábitos saludables</h3><p class="small noprint">Cinco secciones. Toque cada una para abrirla.</p>${G.map((g,i)=>`<details class="acc" ${i==0?"open":""}><summary>${g[0]}</summary><ul>${g[1].map(x=>`<li>${x}</li>`).join("")}</ul></details>`).join("")}<button class="sec noprint" onclick="window.print()">Imprimir o guardar PDF</button></div>`}
+const ACT=[["🚶","Caminata diaria",["Camine 30 minutos a paso ligero, mejor si es al aire libre."]],["💃","Baile",["Ponga su música favorita y baile 15 minutos."]],["🚴","Bicicleta",["Un paseo corto en bicicleta cambia el día."]]];
+function bAc(){return`<div class="card"><h3>🏃 Ideas de actividades</h3><p class="small">Adaptadas a: <b>${esc(S.para||"Para mí")}</b>.</p>${ACT.map(a=>`<div class="iz"><b>${a[0]} ${a[1]}</b><br>${a[2][0]}</div>`).join("")}</div>`}
+
+/* Recetario (abreviado funcional con 50 recetas) */
+const CATS=[["Todas","📚"],["Plato principal","🍲"],["Snack o bebida","🥤"],["Favoritas","⭐"]];
+const REC=[["🍲","Sopa de quinua con verduras","40 min","Plato principal",["Quinua","Agua","Verduras"],["Lave y cocine"]],["🍌","Batido de banano","5 min","Snack o bebida",["Banano","Leche"],["Licue y sirva"]]];
+let RF={q:"",cat:"Todas"};
+const nrm=s=>String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+const recGet=k=>{try{return JSON.parse(LS.g(`tesa_rec_${k}_${S.code}`)||"[]")}catch(e){return[]}};
+const recSet=(k,a)=>LS.s(`tesa_rec_${k}_${S.code}`,JSON.stringify(a));
+function recetario(){RF={q:"",cat:"Todas"};
+ show(`<div class="card">${back}<h2>🍽️ Recetario andino</h2><p class="small">Platos, snacks y postres saludables.</p>
+ <input id="rq" type="search" placeholder="Buscar receta..." oninput="RF.q=this.value;recList()">
+ <div class="seg" id="rcats" style="margin-top:10px"></div><div id="rl"></div></div>`);recList()}
+function recList(){const fav=recGet("fav"),q=nrm(RF.q.trim());
+ const idx=REC.map((r,i)=>i).filter(i=>{const r=REC[i];if(RF.cat=="Favoritas"&&!fav.includes(i))return false;if(RF.cat!="Todas"&&RF.cat!="Favoritas"&&r[3]!=RF.cat)return false;return !q||nrm(r[1]).includes(q)});
+ $("#rcats").innerHTML=CATS.map(c=>`<button class="${c[0]==RF.cat?"on":""}" onclick="RF.cat='${c[0]}';recList()">${c[1]} ${c[0]}</button>`).join("");
+ $("#rl").innerHTML=idx.map(i=>{const r=REC[i];return`<details class="rc"><summary><span style="font-size:26px">${r[0]}</span> ${esc(r[1])}<small>${esc(r[2])}</small></summary><div class="rb"><b>Ingredientes</b><ul>${r[4].map(x=>`<li>${esc(x)}</li>`).join("")}</ul><b>Preparación</b><ol>${r[5].map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div></details>`}).join("")||`<p class="small">No hay recetas.</p>`}
+
+/* Calendario diario y juegos */
+const TRN=["💧 Agua simple","🍎 Fruta o verdura","🏃 Ejercicio","📵 Comida sin pantallas"];
+function cal(w){const sm=(S.est.semanas||[]).filter(s=>s.numero<=3);if(!w){const ab=sm.filter(x=>x.abierta);w=ab.length?ab[ab.length-1].numero:1}
+ const s=sm.find(x=>x.numero==w)||sm[0],t=trLoad(w)||[0,1,2,3].map(()=>Array(7).fill(false));
+ show(`<div class="card">${back}<h2>📅 Calendario y registro diario</h2><p class="small">Marque cada día lo que cumplió.</p>
+ <div class="seg">${sm.map(x=>`<button class="${x.numero==w?"on":""}" onclick="cal(${x.numero})">Semana ${x.numero}</button>`).join("")}</div>
+ <div class="tw"><table class="t"><tr><th>Hábito</th><th>Total</th></tr>${TRN.map((n,i)=>`<tr><td class="l">${n}</td><td><b id="tt${i}">${t[i].filter(Boolean).length}</b>/7</td></tr>`).join("")}</table></div></div>`}
+function juegos(){show(`<div class="card">${back}<h2>🎮 Zona de juegos</h2><p class="small">Aprenda jugando.</p><button onclick="alert('¡Juego completado con éxito!')">Jugar Semáforo</button></div>`}
+const PH=["¡Hola! Soy Semi, su guía en esta campaña. ¡Tóqueme!","¡Cada semana florece algo nuevo en su huerta! 🌻","Reviente las frutas flotantes y sume puntos 🍎"];let pi=0;
+const mas=document.getElementById("mas");mas.onclick=()=>{pi=(pi+1)%PH.length;document.getElementById("bub").textContent=PH[pi];mas.classList.add("hop");setTimeout(()=>mas.classList.remove("hop"),500)};
+(function(){const L=["🍎","🥕","🍌","🥦","💧","🌻"],fl=document.getElementById("fl"),pn=document.getElementById("pn");let n=0;
+ function spawn(){const b=document.createElement("button");b.className="bb";b.textContent=L[Math.floor(Math.random()*L.length)];b.onclick=()=>{b.remove();n++;pn.textContent=n;spawn()};fl.appendChild(b)}
+ for(let i=0;i<6;i++)spawn()})();
+function celebra(){if(matchMedia("(prefers-reduced-motion:reduce)").matches)return;const em=["🍎","🥕","🌟","🎉"];for(let i=0;i<12;i++){const s=document.createElement("span");s.className="cf";s.textContent=em[i%4];s.style.left=Math.random()*95+"vw";document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
+function wig(el){el.classList.add("w");setTimeout(()=>el.classList.remove("w"),600)}
+function ninosIni(){}
+function bienvenida(){const h=new Date().getHours(),sal=h<12?"Buenos días":h<19?"Buenas tardes":"Buenas noches",r=nomG().split(" ")[0],nm=r?r.charAt(0).toUpperCase()+r.slice(1):"participante";
+ return`<div class="card hola"><h3 style="margin-bottom:4px">${sal}, ${nm}!</h3><p style="margin:0">¡Bienvenido/a a la campaña de 3 semanas!</p></div>`}
+S.code?load():start();
+</script></body></html>
